@@ -4,7 +4,26 @@
 
 {% block content %}
   <h1>{{ title }}</h1>
-  <p>Введите целые числа из бухгалтерской отчётности и отчёта о финансовых результатах в одинаковых единицах измерения.</p>
+
+  <section>
+    <h2>Как считается</h2>
+    <p><strong>{{ formula }}</strong></p>
+    <p>Числа в скобках — коды строк бухгалтерского баланса (1xxx) и отчёта о финансовых результатах (2xxx).</p>
+    <ul>
+      {% for name, codes, meaning in factors %}
+        <li><strong>{{ name }}</strong> = {{ codes }} — {{ meaning }}</li>
+      {% endfor %}
+    </ul>
+    <p>Оценка результата:</p>
+    <ul>
+      {% for condition, conclusion in scale %}
+        <li>{{ condition }} — {{ conclusion }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <h2>Данные предприятия</h2>
+  <p>Поля заполнены примерными значениями — замените их своими данными. Вводите целые числа в одинаковых единицах измерения.</p>
   <form method="get">
     {{ form.as_p }}
     <input type="submit" value="Рассчитать">

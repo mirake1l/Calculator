@@ -1,0 +1,8 @@
+venv/
+.venv/
+.python/
+.uv-cache/
+.tmp/
+__pycache__/
+*.py[cod]
+*.sqlite3

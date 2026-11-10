@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <p>Введите целые числа из бухгалтерской отчётности и отчёта о финансовых результатах в одинаковых единицах измерения.</p>
+  <form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Рассчитать">
+  </form>
+  {% if form.is_valid %}
+    {% if error %}
+      <p>{{ error }}</p>
+    {% else %}
+      <h2>Результат расчёта: {{ score|floatformat:2 }}</h2>
+      <p>{{ conclusion }}</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}

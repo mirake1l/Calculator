@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Прогнозирование банкротства предприятия</h1>
+  <p>Выберите модель для расчёта:</p>
+  <ol>
+    <li><a href="{% url 'calculator:calculate' 'altman' %}">Пятифакторная модель Альтмана</a></li>
+    <li><a href="{% url 'calculator:calculate' 'irkutsk' %}">Модель иркутской ГЭА</a></li>
+    <li><a href="{% url 'calculator:calculate' 'taffler' %}">Модель Таффлера</a></li>
+  </ol>
+{% endblock %}
